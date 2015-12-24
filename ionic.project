@@ -1,6 +1,6 @@
 {
   "name": "IonicBeacon",
-  "app_id": "",
+  "app_id": "84c0fbfc",
   "gulpStartupTasks": [
     "sass",
     "watch"
