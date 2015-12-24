@@ -15,24 +15,23 @@ angular.module('starter', ['ionic', 'ngCordovaBeacon'])
 .controller("ExampleController", function($scope, $rootScope, $ionicPlatform, $cordovaBeacon) {
 
   // create beacon scope
-  $scope.beacons = {
-
-  };
+  $scope.beacons = {};
 
   // when ionic platform is rdy
   $ionicPlatform.ready(function() {
 
-    // ??
+    // ???
     $cordovaBeacon.requestWhenInUseAuthorization();
     
     // start looking for beacons in region
     $rootScope.$on("$cordovaBeacon:didRangeBeaconsInRegion", function(event, pluginResult) {
       
-      // append found uniquebeaconkeys to this variable
+      // create a uniqueBeaconKey for each Beacon by using their uuid, major and minor values.
       var uniqueBeaconKey;
 
       for(var i = 0; i < pluginResult.beacons.length; i++){
         uniqueBeaconKey = pluginResult.beacons[i].uuid + ":" + pluginResult.beacons[i].major + ":" + pluginResult.beacons[i].minor;
+        
         $scope.beacons[uniqueBeaconKey] = pluginResult.beacons[i];
       }
 

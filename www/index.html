@@ -25,13 +25,41 @@
 
     <ion-pane>
       <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic iBeacon</h1>
+        <h1 class="title">Ionic iBeacon Demo</h1>
       </ion-header-bar>
 
       <ion-content ng-controller="ExampleController">
         <div class="list">
           
           <div class="item" ng-repeat="(key, value) in beacons">
+          
+          <div class="row">
+            <div class="col">
+              <div ng-if="value.proximity == 'ProximityUnknown'">
+                <button class="button button-block button-dark">
+                    ??????
+                </button>
+              </div>
+
+              <div ng-if="value.proximity == 'ProximityFar'">
+                <button class="button button-block button-calm">
+                    Far, Far Away!
+                </button>
+              </div>
+              
+              <div ng-if="value.proximity == 'ProximityNear'">
+                <button class="button button-block button-energized">
+                    So Close!
+                </button>
+              </div>
+
+              <div ng-if="value.proximity == 'ProximityImmediate'">
+                <button class="button button-block button-balanced">
+                    You Found the iBeacon!
+                </button>
+              </div>
+            </div>
+          </div>
             
             <div class="row">
               <div class="col truncate">
@@ -50,7 +78,13 @@
 
             <div class="row">
               <div class="col">
-                {{value.proximity}}
+                proximity: {{value.proximity}}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                distance: {{value.distance}} ??
               </div>
             </div>
 
