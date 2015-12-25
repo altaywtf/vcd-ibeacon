@@ -39,7 +39,8 @@ angular.module('starter', ['ionic', 'ngCordovaBeacon'])
     
     });
 
-    $cordovaBeacon.startRangingBeaconsInRegion($cordovaBeacon.createBeaconRegion("estimote", "b9407f30-f5f8-466e-aff9-25556b57fe6d"));
+    $cordovaBeacon.startRangingBeaconsInRegion($cordovaBeacon.createBeaconRegion("sensoro", "23A01AF0-232A-4518-9C0E-323FB773F5EF"));
+    $cordovaBeacon.startRangingBeaconsInRegion($cordovaBeacon.createBeaconRegion("sensoro2", "632AE8DD-8FA8-47EC-9EBC-F2FCB5C05F34"));
 
   });
 });
