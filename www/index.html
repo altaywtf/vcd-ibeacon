@@ -1,77 +1,154 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>Ionic iBeacon</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>Ionic iBeacon</title>
 
-    <!-- compiled css output -->
-    <link href="css/ionic.app.css" rel="stylesheet">
+  <!-- compiled css output -->
+  <link href="css/ionic.app.css" rel="stylesheet">
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
 
-    <!-- AngularJS wrapper from nraboy -->
-    <script src="js/ng-cordova-beacon.min.js"></script>
+  <!-- AngularJS wrapper from nraboy -->
+  <script src="js/ng-cordova-beacon.min.js"></script>
 
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
+  <!-- app's js -->
+  <script src="js/app.js"></script>
 
-  </head>
-  <body ng-app="starter">
+</head>
+<body ng-app="starter">
 
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic iBeacon Demo</h1>
-      </ion-header-bar>
+<ion-pane>
 
-      <ion-content ng-controller="ExampleController">
-        <div class="list">
-          
-          <div class="item" ng-repeat="(key, value) in beacons">
+<ion-header-bar class="bar-stable">
+  <h1 class="title">VCD 481 - iBeacon Demo</h1>
+</ion-header-bar>
 
-          <p><b>{{value.uuid}}</b></p>
-          <p><b>major: </b>{{value.major}}</p>
-          <p><b>minor: </b>{{value.minor}}</p>
-          
-          <div ng-if="value.minor == 26201">
+<!-- Content -->
+<ion-content ng-controller="iBeaconController">
 
-            <div class="row">
-              <div class="col">
-                <div ng-if="value.proximity == 'ProximityUnknown'">
-                  <button class="button button-block button-dark">
-                      ?????????????
-                  </button>
-                </div>
+<!-- Puzzle Level: One -->
+<div ng-if="puzzle.puzzleLevel == 1" class="text-center">
+  
+  <!-- False & False -->
+  <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == false">
+    <p>Show Indicator: Range (Level 1: False & False)</p>
 
-                <div ng-if="value.proximity == 'ProximityFar'">
-                  <button class="button button-block button-calm">
-                      Far, Far Away!
-                  </button>
-                </div>
-                
-                <div ng-if="value.proximity == 'ProximityNear'">
-                  <button class="button button-block button-energized">
-                      So Close!
-                  </button>
-                </div>
+    <div class="item" ng-repeat="(key, value) in beacons">
+      <p><b>{{value.uuid}}</b></p>
+      <p><b>major: </b>{{value.major}}</p>
+      <p><b>minor: </b>{{value.minor}}</p>
+      <p><b>accuracy: </b>{{value.accuracy}}</p>
 
-                <div ng-if="value.proximity == 'ProximityImmediate'">
-                  <button class="button button-block button-balanced">
-                      You Found the iBeacon!
-                  </button>
-                </div>
-              </div>
-            </div>
+      <div style="background: #212121; width: {{ (1/value.accuracy)*50 | number:0 }}px; display:block;">&nbsp;</div>
+    </div>
+  </div>
 
-          </div>
+  <!-- True & False -->
+  <div ng-if="puzzle.isBeaconOneFound == true && puzzle.isBeaconTwoFound == false">
+    <p>Show Indicator: Range (Level 1: True & False)</p>
+  </div>
 
+  <!-- False & True -->
+  <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == true">
+    <p>Show Indicator: Waiting (Level 1: False & True)</p>
+    <p>Waiting for other team!</p>
+  </div>
 
-        </div>
-      </ion-content>
-    </ion-pane>
-  </body>
+  <!-- True & True -->
+  <div ng-if="puzzle.isBeaconOneFound == true && puzzle.isBeaconTwoFound == true">
+    <p>Show Hint (Level 1: True & True)</p>
+  </div>
+
+</div>
+<!-- /Puzzle Level: One -->
+
+<!-- Puzzle Level: Two -->
+<div ng-if="puzzle.puzzleLevel == 2">
+  
+  <!-- False & False -->
+  <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == false">
+    <p>Show Indicator: Range</p>
+  </div>
+
+  <!-- True & False -->
+  <div ng-if="puzzle.isBeaconOneFound == true && puzzle.isBeaconTwoFound == false">
+    <p>Show Indicator: Range</p>
+  </div>
+
+  <!-- False & True -->
+  <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == true">
+    <p>Show Indicator: Waiting</p>
+  </div>
+
+  <!-- True & True -->
+  <div ng-if="puzzle.isBeaconOneFound == true && puzzle.isBeaconTwoFound == true">
+    <p>Show Hint</p>
+  </div>
+
+</div>
+<!-- /Puzzle Level: Two -->
+
+<!-- Puzzle Level: Three -->
+<div ng-if="puzzle.puzzleLevel == 3">
+  
+  <!-- False & False -->
+  <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == false">
+    <p>Show Indicator: Range</p>
+  </div>
+
+  <!-- True & False -->
+  <div ng-if="puzzle.isBeaconOneFound == true && puzzle.isBeaconTwoFound == false">
+    <p>Show Indicator: Range</p>
+  </div>
+
+  <!-- False & True -->
+  <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == true">
+    <p>Show Indicator: Waiting</p>
+  </div>
+
+  <!-- True & True -->
+  <div ng-if="puzzle.isBeaconOneFound == true && puzzle.isBeaconTwoFound == true">
+    <p>Show Hint</p>
+  </div>
+
+</div>
+<!-- /Puzzle Level: Three -->
+
+<!-- Puzzle Level: Four -->
+<div ng-if="puzzle.puzzleLevel == 4">
+  
+  <!-- False & False -->
+  <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == false">
+    <p>Show Indicator: Range</p>
+  </div>
+
+  <!-- True & False -->
+  <div ng-if="puzzle.isBeaconOneFound == true && puzzle.isBeaconTwoFound == false">
+    <p>Show Indicator: Range</p>
+  </div>
+
+  <!-- False & True -->
+  <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == true">
+    <p>Show Indicator: Waiting</p>
+  </div>
+
+  <!-- True & True -->
+  <div ng-if="puzzle.isBeaconOneFound == true && puzzle.isBeaconTwoFound == true">
+    <p>Show Hint</p>
+  </div>
+
+</div>
+<!-- /Puzzle Level: Two -->
+
+</ion-content>
+<!-- /Content -->
+
+</ion-pane>
+</body>
 </html>
