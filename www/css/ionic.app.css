@@ -9719,3 +9719,44 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.bar-puzzle {
+  background: #BF1E30; }
+
+.scroll {
+  background: url("../img/bg.png") center center;
+  background-size: cover; }
+
+.puzzle {
+  text-align: center;
+  color: white; }
+
+.hint {
+  padding-top: 30px; }
+  .hint h1 {
+    margin-bottom: 20px;
+    color: white; }
+
+.indicator {
+  margin-top: 30px; }
+  .indicator img {
+    width: 100%; }
+  .indicator .range {
+    margin-top: 15px;
+    display: block;
+    border: 2px solid #BF1E30;
+    padding: 3px; }
+  .indicator .range-meter {
+    display: block;
+    background: #BF1E30;
+    padding: 10px; }
+  .indicator .img-distance {
+    text-align: right; }
+    .indicator .img-distance img {
+      margin-top: 10px;
+      width: 100px; }
+  .indicator .found {
+    margin-top: 15px; }
+    .indicator .found img {
+      margin-top: 10px;
+      width: 240px; }
