@@ -424,7 +424,7 @@ Puzzle Level: {{puzzle.puzzleLevel}}
 
 <div class="bar bar-footer bar-dark">
   <button class="button button-clear pull-left">Level: {{puzzle.puzzleLevel}}</button>
-  <button class="button button-clear pull-right">Time Remaining: 10:00</button>
+  <button class="button button-clear pull-right">Time Remaining: {{counter | secondsToDateTime | date:'mm:ss'}}</button>
 </div>
 
 </ion-content>
