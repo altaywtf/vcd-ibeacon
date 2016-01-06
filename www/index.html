@@ -25,10 +25,8 @@
 
 <ion-pane>
 
-Puzzle Level: {{puzzle.puzzleLevel}}
-
-<ion-header-bar class="bar-dark">
-  <h1 class="title">VCD 481 - iBeacon Demo</h1>
+<ion-header-bar class="bar bar-dark bar-black">
+  <h1 class="title">VCD iBeacon</h1>
 </ion-header-bar>
 
 <!-- Content -->
@@ -40,6 +38,11 @@ Puzzle Level: {{puzzle.puzzleLevel}}
     <div class="col">
       <h1>Boom!</h1>
       <img src="img/hint_test0.png" alt="" width="85%">
+        <div style="display: none;">
+          <audio controls preload="none" autoplay>
+            <source src="media/explode.mp3" type="audio/mpeg"/>
+          </audio>
+        </div>
     </div>
   </div>
 </div>
@@ -51,6 +54,11 @@ Puzzle Level: {{puzzle.puzzleLevel}}
     <div class="col">
       <h1>Congratulations!</h1>
       <img src="img/hint_test5.gif" alt="">
+      <div style="display: none;">
+          <audio controls preload="none" autoplay>
+            <source src="media/explode.mp3" type="audio/mpeg"/>
+          </audio>
+      </div>
     </div>
   </div>
 </div>
@@ -63,6 +71,7 @@ Puzzle Level: {{puzzle.puzzleLevel}}
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == false">
     <p>Show Indicator: Range (Level 1: False & False)</p>
     <div ng-repeat="(key, value) in beacons">
+
       <!-- Indicator -->
         <div class="row">
           <div class="col">
@@ -71,7 +80,6 @@ Puzzle Level: {{puzzle.puzzleLevel}}
                 <div class="range">
                   <div class="range-meter" style="width:{{(1/value.accuracy)*50 | number:0}}px"></div>
                 </div>
-
                 <div class="img-distance">
                   <img src="img/distance.png" alt="">
                 </div>
@@ -148,7 +156,7 @@ Puzzle Level: {{puzzle.puzzleLevel}}
   
   <!-- False & False -->
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == false">
-    <p>Show Indicator: Range (Level 1: False & False)</p>
+    <p>Show Indicator: Range (Level 2: False & False)</p>
     <div ng-repeat="(key, value) in beacons">
       <!-- Indicator -->
         <div class="row">
@@ -172,7 +180,7 @@ Puzzle Level: {{puzzle.puzzleLevel}}
 
   <!-- True & False -->
   <div ng-if="puzzle.isBeaconOneFound == true && puzzle.isBeaconTwoFound == false">
-    <p>Show Indicator: Range (Level 1: True & False)</p>
+    <p>Show Indicator: Range (Level 2: True & False)</p>
     <div ng-repeat="(key, value) in beacons">
       <!-- Indicator -->
         <div class="row">
@@ -196,7 +204,7 @@ Puzzle Level: {{puzzle.puzzleLevel}}
 
   <!-- False & True -->
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == true">
-    <p>Show Indicator: Waiting (Level 1: False & True)</p>
+    <p>Show Indicator: Waiting (Level 2: False & True)</p>
       <!-- Indicator -->
         <div class="row">
           <div class="col">
@@ -245,7 +253,7 @@ Puzzle Level: {{puzzle.puzzleLevel}}
   
   <!-- False & False -->
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == false">
-    <p>Show Indicator: Range (Level 1: False & False)</p>
+    <p>Show Indicator: Range (Level 3: False & False)</p>
     <div ng-repeat="(key, value) in beacons">
       <!-- Indicator -->
         <div class="row">
@@ -269,7 +277,7 @@ Puzzle Level: {{puzzle.puzzleLevel}}
 
   <!-- True & False -->
   <div ng-if="puzzle.isBeaconOneFound == true && puzzle.isBeaconTwoFound == false">
-    <p>Show Indicator: Range (Level 1: True & False)</p>
+    <p>Show Indicator: Range (Level 3: True & False)</p>
     <div ng-repeat="(key, value) in beacons">
       <!-- Indicator -->
         <div class="row">
@@ -293,7 +301,7 @@ Puzzle Level: {{puzzle.puzzleLevel}}
 
   <!-- False & True -->
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == true">
-    <p>Show Indicator: Waiting (Level 1: False & True)</p>
+    <p>Show Indicator: Waiting (Level 3: False & True)</p>
       <!-- Indicator -->
         <div class="row">
           <div class="col">
@@ -336,7 +344,7 @@ Puzzle Level: {{puzzle.puzzleLevel}}
   
   <!-- False & False -->
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == false">
-    <p>Show Indicator: Range (Level 1: False & False)</p>
+    <p>Show Indicator: Range (Level 4: False & False)</p>
     <div ng-repeat="(key, value) in beacons">
       <!-- Indicator -->
         <div class="row">
@@ -360,7 +368,7 @@ Puzzle Level: {{puzzle.puzzleLevel}}
 
   <!-- True & False -->
   <div ng-if="puzzle.isBeaconOneFound == true && puzzle.isBeaconTwoFound == false">
-    <p>Show Indicator: Range (Level 1: True & False)</p>
+    <p>Show Indicator: Range (Level 4: True & False)</p>
     <div ng-repeat="(key, value) in beacons">
       <!-- Indicator -->
         <div class="row">
@@ -384,7 +392,7 @@ Puzzle Level: {{puzzle.puzzleLevel}}
 
   <!-- False & True -->
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == true">
-    <p>Show Indicator: Waiting (Level 1: False & True)</p>
+    <p>Show Indicator: Waiting (Level 4: False & True)</p>
       <!-- Indicator -->
         <div class="row">
           <div class="col">

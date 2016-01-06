@@ -9723,6 +9723,9 @@ a.button {
 .bar-puzzle {
   background: #BF1E30; }
 
+.bar-black {
+  background: black !important; }
+
 .scroll {
   background: url("../img/bg.png") center center;
   background-size: cover; }

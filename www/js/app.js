@@ -44,14 +44,25 @@ angular.module('starter', ['ionic', 'ngCordovaBeacon'])
         }
     });
 
-    $scope.startTimer();
-
-
   // GET REQUEST --------------------------------- //
   $scope.getData = function(){
     $http.get('http://188.166.115.68:9000/api/puzzle/567d1270bfdbffeb7eaa51a8')
     .then(
-      function (response) { console.log('Success', response); $scope.puzzle = response.data; }, 
+      function (response) { 
+        console.log('Success', response); 
+        $scope.puzzle = response.data; 
+        $scope.level = response.data.puzzleLevel;
+
+        if($scope.level == 1){
+          $scope.startTimer();
+        }
+        
+        if($scope.level == 5 || $scope.level == 0){
+          $scope.stopTimer();
+        }
+
+      },
+
       function (err) { console.log('Error', err); }
     )
   };
