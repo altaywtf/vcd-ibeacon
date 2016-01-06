@@ -18,13 +18,13 @@ The puzzleLevel and statuses (isBeaconOneFound & isBeaconTwoFound) are being sto
 
 **Screenshots**
 
-<img src="_screenshots/00_icon.jpg" width="48%">
-<img src="_screenshots/00_splash.jpg" width="48%">
-<img src="_screenshots/01_search.jpg" width="48%">
-<img src="_screenshots/02_found.jpg" width="48%">
-<img src="_screenshots/03_hint_1.jpg" width="48%">
-<img src="_screenshots/04_hint_2.jpg" width="48%">
-<img src="_screenshots/05_hint_3.jpg" width="48%">
-<img src="_screenshots/06_hint_4.jpg" width="48%">
-<img src="_screenshots/07_success.jpg" width="48%">
-<img src="_screenshots/08_fail.jpg" width="48%">
+<img src="_screenshots/00_icon.jpg" width="18%">
+<img src="_screenshots/00_splash.jpg" width="18%">
+<img src="_screenshots/01_search.jpg" width="18%">
+<img src="_screenshots/02_found.jpg" width="18%">
+<img src="_screenshots/03_hint_1.jpg" width="18%">
+<img src="_screenshots/04_hint_2.jpg" width="18%">
+<img src="_screenshots/05_hint_3.jpg" width="18%">
+<img src="_screenshots/06_hint_4.jpg" width="18%">
+<img src="_screenshots/07_success.jpg" width="18%">
+<img src="_screenshots/08_fail.jpg" width="18%">
