@@ -51,7 +51,7 @@ angular.module('starter', ['ionic', 'ngCordovaBeacon'])
         console.log('Success', response); 
         $scope.puzzle = response.data; 
         $scope.level = response.data.puzzleLevel;
-        if($scope.level == 5){
+        if($scope.level == 5) {
           $scope.stopTimer();
         }
       },
@@ -109,31 +109,6 @@ angular.module('starter', ['ionic', 'ngCordovaBeacon'])
         // LEVEL: 1 ------------------------------- //
         if($scope.puzzle.puzzleLevel == 1) {
 
-          if(pluginResult.beacons[i].accuracy <= 3 && pluginResult.beacons[i].accuracy != -1 && pluginResult.beacons[i].minor == 1) {
-
-            pluginResult.beacons[i].accuracy = 3;
-            
-            $scope.putDataTrue();
-            $scope.testField[i] = 'putDataTrue';
-          }
-
-          else if((pluginResult.beacons[i].accuracy > 3 || pluginResult.beacons[i].accuracy == -1) && pluginResult.beacons[i].minor == 1) {
-            
-            if(pluginResult.beacons[i].accuracy == -1){
-              pluginResult.beacons[i].accuracy = 20;
-            }
-            
-            $scope.putDataFalse();
-            $scope.testField[i] = 'putDataFalse';
-          }
-
-        }
-        // ---------------------------------------- //
-
-        
-        // LEVEL: 2 ------------------------------- //
-        if($scope.puzzle.puzzleLevel == 2) {
-
           if(pluginResult.beacons[i].accuracy <= 3 && pluginResult.beacons[i].accuracy != -1 && pluginResult.beacons[i].minor == 2) {
 
             pluginResult.beacons[i].accuracy = 3;
@@ -151,14 +126,15 @@ angular.module('starter', ['ionic', 'ngCordovaBeacon'])
             $scope.putDataFalse();
             $scope.testField[i] = 'putDataFalse';
           }
+
         }
         // ---------------------------------------- //
 
         
-        // LEVEL: 3 ------------------------------- //
-        if($scope.puzzle.puzzleLevel == 3) {
+        // LEVEL: 2 ------------------------------- //
+        if($scope.puzzle.puzzleLevel == 2) {
 
-          if(pluginResult.beacons[i].accuracy <= 3 && pluginResult.beacons[i].accuracy != -1 && pluginResult.beacons[i].minor == 3) {
+          if(pluginResult.beacons[i].accuracy <= 3 && pluginResult.beacons[i].accuracy != -1 && pluginResult.beacons[i].minor == 1) {
 
             pluginResult.beacons[i].accuracy = 3;
             
@@ -166,7 +142,31 @@ angular.module('starter', ['ionic', 'ngCordovaBeacon'])
             $scope.testField[i] = 'putDataTrue';
           }
 
-          else if((pluginResult.beacons[i].accuracy > 3 || pluginResult.beacons[i].accuracy == -1) && pluginResult.beacons[i].minor == 3) {
+          else if((pluginResult.beacons[i].accuracy > 3 || pluginResult.beacons[i].accuracy == -1) && pluginResult.beacons[i].minor == 1) {
+            
+            if(pluginResult.beacons[i].accuracy == -1){
+              pluginResult.beacons[i].accuracy = 20;
+            }
+            
+            $scope.putDataFalse();
+            $scope.testField[i] = 'putDataFalse';
+          }
+        }
+        // ---------------------------------------- //
+
+        
+        // LEVEL: 3 ------------------------------- //
+        if($scope.puzzle.puzzleLevel == 3) {
+
+          if(pluginResult.beacons[i].accuracy <= 3 && pluginResult.beacons[i].accuracy != -1 && pluginResult.beacons[i].minor == 4) {
+
+            pluginResult.beacons[i].accuracy = 3;
+            
+            $scope.putDataTrue();
+            $scope.testField[i] = 'putDataTrue';
+          }
+
+          else if((pluginResult.beacons[i].accuracy > 3 || pluginResult.beacons[i].accuracy == -1) && pluginResult.beacons[i].minor == 4) {
             
             if(pluginResult.beacons[i].accuracy == -1){
               pluginResult.beacons[i].accuracy = 20;
@@ -182,7 +182,7 @@ angular.module('starter', ['ionic', 'ngCordovaBeacon'])
         // LEVEL: 4 ------------------------------- //
         if($scope.puzzle.puzzleLevel == 4) {
 
-          if(pluginResult.beacons[i].accuracy <= 3 && pluginResult.beacons[i].accuracy != -1 && pluginResult.beacons[i].minor == 4) {
+          if(pluginResult.beacons[i].accuracy <= 3 && pluginResult.beacons[i].accuracy != -1 && pluginResult.beacons[i].minor == 3) {
 
             pluginResult.beacons[i].accuracy = 3;
             
@@ -190,7 +190,7 @@ angular.module('starter', ['ionic', 'ngCordovaBeacon'])
             $scope.testField[i] = 'putDataTrue';
           }
 
-          else if((pluginResult.beacons[i].accuracy > 3 || pluginResult.beacons[i].accuracy == -1) && pluginResult.beacons[i].minor == 4) {
+          else if((pluginResult.beacons[i].accuracy > 3 || pluginResult.beacons[i].accuracy == -1) && pluginResult.beacons[i].minor == 3) {
             
             if(pluginResult.beacons[i].accuracy == -1){
               pluginResult.beacons[i].accuracy = 20;

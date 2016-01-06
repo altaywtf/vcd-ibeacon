@@ -1,5 +1,9 @@
 $red-ui: #BF1E30;
 
+.asd{
+	padding-right: 60px;
+}
+
 .bar-puzzle{
 	background: $red-ui;
 }
@@ -22,6 +26,7 @@ $red-ui: #BF1E30;
 	padding-top: 30px;
 	h1{
 		margin-bottom: 20px;
+		font-size: 16px;
 		color: white;
 	}
 }
