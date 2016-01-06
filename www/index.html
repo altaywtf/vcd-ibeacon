@@ -71,7 +71,6 @@
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == false">
     <p>1FF</p>
     <div ng-repeat="(key, value) in beacons">
-      <p>{{value.minor}} || {{value.accuracy}}</p>
       <!-- Indicator -->
         <div class="row" ng-if="value.minor == 1">
           <div class="col">
