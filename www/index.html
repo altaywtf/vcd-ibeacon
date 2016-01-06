@@ -69,16 +69,16 @@
   
   <!-- False & False -->
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == false">
-    <p>Show Indicator: Range (Level 1: False & False)</p>
+    <p>1FF</p>
     <div ng-repeat="(key, value) in beacons">
-
+      <p>{{value.minor}} || {{value.accuracy}}</p>
       <!-- Indicator -->
-        <div class="row">
+        <div class="row" ng-if="value.minor == 1">
           <div class="col">
              <div class="indicator">
                 <img src="img/find.png" alt="">
                 <div class="range">
-                  <div class="range-meter" style="width:{{(1/value.accuracy)*50 | number:0}}px"></div>
+                  <div class="range-meter" style="width:{{ (1/value.accuracy)*850 | number:0}}px"></div>
                 </div>
                 <div class="img-distance">
                   <img src="img/distance.png" alt="">
@@ -93,10 +93,10 @@
 
   <!-- True & False -->
   <div ng-if="puzzle.isBeaconOneFound == true && puzzle.isBeaconTwoFound == false">
-    <p>Show Indicator: Range (Level 1: True & False)</p>
+    <p>1TF</p>
     <div ng-repeat="(key, value) in beacons">
       <!-- Indicator -->
-        <div class="row">
+        <div class="row" ng-if="value.minor == 1">
           <div class="col">
              <div class="indicator">
                 <img src="img/find.png" alt="">
@@ -117,7 +117,7 @@
 
   <!-- False & True -->
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == true">
-    <p>Show Indicator: Waiting (Level 1: False & True)</p>
+    <p>1FT</p>
       <!-- Indicator -->
         <div class="row">
           <div class="col">
@@ -156,10 +156,10 @@
   
   <!-- False & False -->
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == false">
-    <p>Show Indicator: Range (Level 2: False & False)</p>
+    <p>2FF</p>
     <div ng-repeat="(key, value) in beacons">
       <!-- Indicator -->
-        <div class="row">
+        <div class="row" ng-if="value.minor == 2">
           <div class="col">
              <div class="indicator">
                 <img src="img/find.png" alt="">
@@ -180,10 +180,10 @@
 
   <!-- True & False -->
   <div ng-if="puzzle.isBeaconOneFound == true && puzzle.isBeaconTwoFound == false">
-    <p>Show Indicator: Range (Level 2: True & False)</p>
+    <p>2TF</p>
     <div ng-repeat="(key, value) in beacons">
       <!-- Indicator -->
-        <div class="row">
+        <div class="row" ng-if="value.minor == 2">
           <div class="col">
              <div class="indicator">
                 <img src="img/find.png" alt="">
@@ -204,7 +204,7 @@
 
   <!-- False & True -->
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == true">
-    <p>Show Indicator: Waiting (Level 2: False & True)</p>
+    <p>2FT</p>
       <!-- Indicator -->
         <div class="row">
           <div class="col">
@@ -253,10 +253,10 @@
   
   <!-- False & False -->
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == false">
-    <p>Show Indicator: Range (Level 3: False & False)</p>
+    <p>3FF</p>
     <div ng-repeat="(key, value) in beacons">
       <!-- Indicator -->
-        <div class="row">
+        <div class="row" ng-if="value.minor == 3">
           <div class="col">
              <div class="indicator">
                 <img src="img/find.png" alt="">
@@ -277,10 +277,10 @@
 
   <!-- True & False -->
   <div ng-if="puzzle.isBeaconOneFound == true && puzzle.isBeaconTwoFound == false">
-    <p>Show Indicator: Range (Level 3: True & False)</p>
+    <p>3TF</p>
     <div ng-repeat="(key, value) in beacons">
       <!-- Indicator -->
-        <div class="row">
+        <div class="row" ng-if="value.minor == 3">
           <div class="col">
              <div class="indicator">
                 <img src="img/find.png" alt="">
@@ -301,7 +301,7 @@
 
   <!-- False & True -->
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == true">
-    <p>Show Indicator: Waiting (Level 3: False & True)</p>
+    <p>3FT</p>
       <!-- Indicator -->
         <div class="row">
           <div class="col">
@@ -344,10 +344,10 @@
   
   <!-- False & False -->
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == false">
-    <p>Show Indicator: Range (Level 4: False & False)</p>
+    <p>4FF</p>
     <div ng-repeat="(key, value) in beacons">
       <!-- Indicator -->
-        <div class="row">
+        <div class="row" ng-if="value.minor == 4">
           <div class="col">
              <div class="indicator">
                 <img src="img/find.png" alt="">
@@ -368,10 +368,10 @@
 
   <!-- True & False -->
   <div ng-if="puzzle.isBeaconOneFound == true && puzzle.isBeaconTwoFound == false">
-    <p>Show Indicator: Range (Level 4: True & False)</p>
+    <p>4TF</p>
     <div ng-repeat="(key, value) in beacons">
       <!-- Indicator -->
-        <div class="row">
+        <div class="row" ng-if="value.minor == 4">
           <div class="col">
              <div class="indicator">
                 <img src="img/find.png" alt="">
@@ -392,7 +392,7 @@
 
   <!-- False & True -->
   <div ng-if="puzzle.isBeaconOneFound == false && puzzle.isBeaconTwoFound == true">
-    <p>Show Indicator: Waiting (Level 4: False & True)</p>
+    <p>4FT</p>
       <!-- Indicator -->
         <div class="row">
           <div class="col">

@@ -18,7 +18,6 @@ angular.module('starter', ['ionic', 'ngCordovaBeacon'])
   // TIMER --------------------------------- //
   $scope.counter = 600;
     var mytimeout = null; // the current timeoutID
-    // actual timer method, counts down every second, stops on zero
     $scope.onTimeout = function() {
         if($scope.counter ===  0) {
             $scope.$broadcast('timer-stopped', 0);
@@ -31,13 +30,13 @@ angular.module('starter', ['ionic', 'ngCordovaBeacon'])
     $scope.startTimer = function() {
         mytimeout = $timeout($scope.onTimeout, 1000);
     };
-    // stops and resets the current timer
+
     $scope.stopTimer = function() {
         $scope.$broadcast('timer-stopped', $scope.counter);
         $scope.counter = 0;
         $timeout.cancel(mytimeout);
     };
-    // triggered, when the timer stops, you can do something here, maybe show a visual indicator or vibrate the device
+
     $scope.$on('timer-stopped', function(event, remaining) {
         if(remaining === 0) {
             console.log('your time ran out!');
@@ -52,15 +51,9 @@ angular.module('starter', ['ionic', 'ngCordovaBeacon'])
         console.log('Success', response); 
         $scope.puzzle = response.data; 
         $scope.level = response.data.puzzleLevel;
-
-        if($scope.level == 1){
-          $scope.startTimer();
-        }
-        
-        if($scope.level == 5 || $scope.level == 0){
+        if($scope.level == 5){
           $scope.stopTimer();
         }
-
       },
 
       function (err) { console.log('Error', err); }
@@ -94,6 +87,8 @@ angular.module('starter', ['ionic', 'ngCordovaBeacon'])
 
   $scope.intervalFunction();
 
+  // START TIMER! ------------------------------- //
+  $scope.startTimer();
 
   // BEACONS ------------------------------------ //
   $scope.beacons    = {};
@@ -111,17 +106,104 @@ angular.module('starter', ['ionic', 'ngCordovaBeacon'])
       for(var i = 0; i < pluginResult.beacons.length; i++){
         uniqueBeaconKey = pluginResult.beacons[i].uuid+":"+pluginResult.beacons[i].major+":"+pluginResult.beacons[i].minor;
 
+        // LEVEL: 1 ------------------------------- //
+        if($scope.puzzle.puzzleLevel == 1) {
+
+          if(pluginResult.beacons[i].accuracy <= 3 && pluginResult.beacons[i].accuracy != -1 && pluginResult.beacons[i].minor == 1) {
+
+            pluginResult.beacons[i].accuracy = 3;
+            
+            $scope.putDataTrue();
+            $scope.testField[i] = 'putDataTrue';
+          }
+
+          else if((pluginResult.beacons[i].accuracy > 3 || pluginResult.beacons[i].accuracy == -1) && pluginResult.beacons[i].minor == 1) {
+            
+            if(pluginResult.beacons[i].accuracy == -1){
+              pluginResult.beacons[i].accuracy = 20;
+            }
+            
+            $scope.putDataFalse();
+            $scope.testField[i] = 'putDataFalse';
+          }
+
+        }
+        // ---------------------------------------- //
+
+        
+        // LEVEL: 2 ------------------------------- //
+        if($scope.puzzle.puzzleLevel == 2) {
+
+          if(pluginResult.beacons[i].accuracy <= 3 && pluginResult.beacons[i].accuracy != -1 && pluginResult.beacons[i].minor == 2) {
+
+            pluginResult.beacons[i].accuracy = 3;
+            
+            $scope.putDataTrue();
+            $scope.testField[i] = 'putDataTrue';
+          }
+
+          else if((pluginResult.beacons[i].accuracy > 3 || pluginResult.beacons[i].accuracy == -1) && pluginResult.beacons[i].minor == 2) {
+            
+            if(pluginResult.beacons[i].accuracy == -1){
+              pluginResult.beacons[i].accuracy = 20;
+            }
+            
+            $scope.putDataFalse();
+            $scope.testField[i] = 'putDataFalse';
+          }
+        }
+        // ---------------------------------------- //
+
+        
+        // LEVEL: 3 ------------------------------- //
+        if($scope.puzzle.puzzleLevel == 3) {
+
+          if(pluginResult.beacons[i].accuracy <= 3 && pluginResult.beacons[i].accuracy != -1 && pluginResult.beacons[i].minor == 3) {
+
+            pluginResult.beacons[i].accuracy = 3;
+            
+            $scope.putDataTrue();
+            $scope.testField[i] = 'putDataTrue';
+          }
+
+          else if((pluginResult.beacons[i].accuracy > 3 || pluginResult.beacons[i].accuracy == -1) && pluginResult.beacons[i].minor == 3) {
+            
+            if(pluginResult.beacons[i].accuracy == -1){
+              pluginResult.beacons[i].accuracy = 20;
+            }
+            
+            $scope.putDataFalse();
+            $scope.testField[i] = 'putDataFalse';
+          }
+        }
+        // ---------------------------------------- //
+
+
+        // LEVEL: 4 ------------------------------- //
+        if($scope.puzzle.puzzleLevel == 4) {
+
+          if(pluginResult.beacons[i].accuracy <= 3 && pluginResult.beacons[i].accuracy != -1 && pluginResult.beacons[i].minor == 4) {
+
+            pluginResult.beacons[i].accuracy = 3;
+            
+            $scope.putDataTrue();
+            $scope.testField[i] = 'putDataTrue';
+          }
+
+          else if((pluginResult.beacons[i].accuracy > 3 || pluginResult.beacons[i].accuracy == -1) && pluginResult.beacons[i].minor == 4) {
+            
+            if(pluginResult.beacons[i].accuracy == -1){
+              pluginResult.beacons[i].accuracy = 20;
+            }
+            
+            $scope.putDataFalse();
+            $scope.testField[i] = 'putDataFalse';
+          }
+        }
+        // ---------------------------------------- //      
+
         $scope.beacons[uniqueBeaconKey] = pluginResult.beacons[i];
 
-        if(pluginResult.beacons[i].accuracy <= 0.5 && pluginResult.beacons[i].accuracy != -1) {
-          $scope.putDataTrue();
-          $scope.testField[i] = 'putDataTrue';
-        }
-
-        else{
-          $scope.putDataFalse();
-          $scope.testField[i] = 'putDataFalse';
-        }
       }
 
       $scope.$apply();
