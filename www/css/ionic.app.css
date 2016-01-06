@@ -9720,8 +9720,9 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.asd {
-  padding-right: 50px; }
+.asd p {
+  display: none;
+  padding-top: 12px; }
 
 .bar-puzzle {
   background: #BF1E30; }
@@ -9741,6 +9742,7 @@ a.button {
   padding-top: 30px; }
   .hint h1 {
     margin-bottom: 20px;
+    font-size: 22px !important;
     color: white; }
 
 .indicator {

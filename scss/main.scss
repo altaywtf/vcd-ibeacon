@@ -1,18 +1,19 @@
 $red-ui: #BF1E30;
 
-.asd{
-	padding-right: 60px;
+.asd { 
+	// padding-right: 60px;
+	p { display: none; padding-top: 12px; }
 }
 
-.bar-puzzle{
+.bar-puzzle {
 	background: $red-ui;
 }
 
-.bar-black{
+.bar-black {
 	background: black!important;
 }
 
-.scroll{
+.scroll {
 	background: url("../img/bg.png") center center;
   	background-size: cover;
 }
@@ -26,7 +27,7 @@ $red-ui: #BF1E30;
 	padding-top: 30px;
 	h1{
 		margin-bottom: 20px;
-		font-size: 16px;
+		font-size: 22px!important;
 		color: white;
 	}
 }
@@ -42,13 +43,13 @@ $red-ui: #BF1E30;
 		padding: 3px;
 	}
 
-	.range-meter{
+	.range-meter {
 		display: block;
 		background: $red-ui;
 		padding: 10px;
 	}
 
-	.img-distance{
+	.img-distance {
 		text-align: right;
 		img{
 			margin-top: 10px;
@@ -56,7 +57,7 @@ $red-ui: #BF1E30;
 		}
 	}
 
-	.found{
+	.found {
 		margin-top: 15px;
 		img{
 			margin-top: 10px;
