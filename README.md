@@ -28,3 +28,9 @@ The puzzleLevel and statuses (isBeaconOneFound & isBeaconTwoFound) are being sto
 <img src="_screenshots/06_hint_4.jpg" width="18%">
 <img src="_screenshots/07_success.jpg" width="18%">
 <img src="_screenshots/08_fail.jpg" width="18%">
+
+---
+
+**Video**
+
+Solving process: <a href="https://vimeo.com/151797257">https://vimeo.com/151797257</a>

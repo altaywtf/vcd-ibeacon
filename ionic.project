@@ -1,5 +1,5 @@
 {
-  "name": "IonicBeacon",
+  "name": "VCD iBeacon",
   "app_id": "84c0fbfc",
   "gulpStartupTasks": [
     "sass",

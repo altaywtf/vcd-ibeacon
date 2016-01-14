@@ -1,7 +1,7 @@
 {
-  "name": "ionicbeacon",
+  "name": "vcd-ibeacon",
   "version": "1.1.1",
-  "description": "IonicBeacon: An Ionic project",
+  "description": "an iOS application communicating with iBeacons, built with ionic.",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
